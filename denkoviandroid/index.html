@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	<meta charset="utf-8" />
+   	<link rel='stylesheet' type='text/css' href='css/mediaq.css'>		
+	<link rel='stylesheet' type='text/css' href='css/bootstrap.css'>		
+	<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css'>
+	<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>		
+	<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.min.css'> 
+   	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- <script src="cordova.js"></script>  -->
+	
+	<style type="text/css"> 
+		@font-face {
+			font-family: "Berlin";
+			src: url("fonts/berlin-sans-fb-demi-bold.ttf") format("truetype");
+		}
+
+		#recuadro1
+		{
+		  font-family:Berlin;
+		  color:#ffffff;
+		  font-size:60px; 
+		}
+		#recuadro2
+		{
+		  font-family:Berlin;
+		  color:#ffffff;
+		  font-size:60px; 
+		}
+		
+		</style>
+
+	<script language="javascript">
+		var puestos=0;
+
+		var int=self.setInterval("cargarLista()",1000);
+		
+		/*var int=self.setInterval("refresh()",10000);		
+
+		function refresh ()
+		{
+			window.location="http://localhost/denkoviandroid/index2.html";
+		}*/
+		
+		function cambiar () 
+		{
+			if(opciones=='UL'){document.getElementById("ima_salida").src="img/flecha_izquierda_arriba.png";}
+			if(opciones=='U'){document.getElementById("ima_salida").src="img/flecha_arriba.png";}
+			if(opciones=='UR'){document.getElementById("ima_salida").src="img/flecha_derecha_arriba.png";}
+			
+			if(opciones=='R'){document.getElementById("ima_salida").src="img/flecha_derecha.png";}
+			if(opciones=='L'){document.getElementById("ima_salida").src="img/flecha_izquierda.png";}
+			
+			if(opciones=='DL'){document.getElementById("ima_salida").src="img/flecha_izquierda_abajo.png";}
+			if(opciones=='D'){document.getElementById("ima_salida").src="img/flecha_abajo.png";}
+			if(opciones=='DR'){document.getElementById("ima_salida").src="img/flecha_derecha_abajo.png";}
+		}
+
+		function cargarLista()
+		{
+		
+			var xmlhttp;
+			xmlhttp = new XMLHttpRequest();
+			
+
+			//xmlhttp.open("GET","http://10.0.3.2/servidorphp/extraer_sql.php");//android localhost
+			xmlhttp.open("GET","http://localhost/servidorphp/extraer_sql.php");//pc local localhost
+			//xmlhttp.open("GET","http://192.168.1.115/servidorphp/extraer_sql.php","false");//pc remota localhost
+
+			var invocation = new XMLHttpRequest();
+		
+			
+			
+			xmlhttp.onreadystatechange = function()
+			{
+
+				if( xmlhttp.readyState == 4 && xmlhttp.status == 200 )
+				{
+					var r = xmlhttp.responseText,
+					//Convertimos la cadena a JSON
+					json = eval('(' + r + ')'),
+					ul = document.createElement( 'ul' );
+		 
+					if( json.length )
+					{
+							var s1 ;var s2 ;var s3 ;var s4 ;
+						
+							var digitos1 = 1;	var digitos2 = 2;
+							var digitos3 = 3;   var digitos4 = 4;
+							
+							digitos1 =parseInt(json[1]);digitos2 =parseInt(json[3]);
+							digitos3 =parseInt(json[5]);digitos4 =parseInt(json[7]);	
+							
+							if(digitos1<1000)
+							{
+								
+								document.getElementById('imas1').src='img/s1_verde.png';
+								
+								var s1 = json[1].split("", 3);
+								
+								if(s1[0]=='1'){document.getElementById('ima1').src='img/1.png';}if(s1[0]=='2'){document.getElementById('ima1').src='img/2.png';}
+								if(s1[0]=='3'){document.getElementById('ima1').src='img/3.png';}if(s1[0]=='4'){document.getElementById('ima1').src='img/4.png';}
+								if(s1[0]=='5'){document.getElementById('ima1').src='img/5.png';}if(s1[0]=='6'){document.getElementById('ima1').src='img/6.png';}
+								if(s1[0]=='7'){document.getElementById('ima1').src='img/7.png';}if(s1[0]=='8'){document.getElementById('ima1').src='img/8.png';}
+								if(s1[0]=='9'){document.getElementById('ima1').src='img/9.png';}if(s1[0]=='0'){document.getElementById('ima1').src='img/0.png';}
+								
+								if(s1[1]=='1'){document.getElementById('ima2').src='img/1.png';}if(s1[1]=='2'){document.getElementById('ima2').src='img/2.png';}
+								if(s1[1]=='3'){document.getElementById('ima2').src='img/3.png';}if(s1[1]=='4'){document.getElementById('ima2').src='img/4.png';}
+								if(s1[1]=='5'){document.getElementById('ima2').src='img/5.png';}if(s1[1]=='6'){document.getElementById('ima2').src='img/6.png';}
+								if(s1[1]=='7'){document.getElementById('ima2').src='img/7.png';}if(s1[1]=='8'){document.getElementById('ima2').src='img/8.png';}
+								if(s1[1]=='9'){document.getElementById('ima2').src='img/9.png';}if(s1[1]=='0'){document.getElementById('ima2').src='img/0.png';}
+								
+								if(s1[2]=='1'){document.getElementById('ima3').src='img/1.png';}if(s1[2]=='2'){document.getElementById('ima3').src='img/2.png';}
+								if(s1[2]=='3'){document.getElementById('ima3').src='img/3.png';}if(s1[2]=='4'){document.getElementById('ima3').src='img/4.png';}
+								if(s1[2]=='5'){document.getElementById('ima3').src='img/5.png';}if(s1[2]=='6'){document.getElementById('ima3').src='img/6.png';}
+								if(s1[2]=='7'){document.getElementById('ima3').src='img/7.png';}if(s1[2]=='8'){document.getElementById('ima3').src='img/8.png';}
+								if(s1[2]=='9'){document.getElementById('ima3').src='img/9.png';}if(s1[2]=='0'){document.getElementById('ima3').src='img/0.png';}
+									
+								if(digitos1<100)
+								{
+									var s1 = json[1].split("", 2);
+									document.getElementById('ima1').src='img/null.png';
+									document.getElementById('imas1').src='img/s1_verde.png';
+									if(s1[0]=='1'){document.getElementById('ima2').src='img/1.png';}if(s1[0]=='2'){document.getElementById('ima2').src='img/2.png';}
+									if(s1[0]=='3'){document.getElementById('ima2').src='img/3.png';}if(s1[0]=='4'){document.getElementById('ima2').src='img/4.png';}
+									if(s1[0]=='5'){document.getElementById('ima2').src='img/5.png';}if(s1[0]=='6'){document.getElementById('ima2').src='img/6.png';}
+									if(s1[0]=='7'){document.getElementById('ima2').src='img/7.png';}if(s1[0]=='8'){document.getElementById('ima2').src='img/8.png';}
+									if(s1[0]=='9'){document.getElementById('ima2').src='img/9.png';}if(s1[0]=='0'){document.getElementById('ima2').src='img/0.png';}
+									
+									if(s1[1]=='1'){document.getElementById('ima3').src='img/1.png';}if(s1[1]=='2'){document.getElementById('ima3').src='img/2.png';}
+									if(s1[1]=='3'){document.getElementById('ima3').src='img/3.png';}if(s1[1]=='4'){document.getElementById('ima3').src='img/4.png';}
+									if(s1[1]=='5'){document.getElementById('ima3').src='img/5.png';}if(s1[1]=='6'){document.getElementById('ima3').src='img/6.png';}
+									if(s1[1]=='7'){document.getElementById('ima3').src='img/7.png';}if(s1[1]=='8'){document.getElementById('ima3').src='img/8.png';}
+									if(s1[1]=='9'){document.getElementById('ima3').src='img/9.png';}if(s1[1]=='0'){document.getElementById('ima3').src='img/0.png';}
+									
+									if(digitos1<10)
+									{
+										document.getElementById('ima3').src='img/null.png';
+										document.getElementById('imas1').src='img/s1_amarillo.png';
+										var s1 = json[1];
+										if(s1[0]=='1'){document.getElementById('ima2').src='img/1.png';}if(s1[0]=='2'){document.getElementById('ima2').src='img/2.png';}
+										if(s1[0]=='3'){document.getElementById('ima2').src='img/3.png';}if(s1[0]=='4'){document.getElementById('ima2').src='img/4.png';}
+										if(s1[0]=='5'){document.getElementById('ima2').src='img/5.png';}if(s1[0]=='6'){document.getElementById('ima2').src='img/6.png';}
+										if(s1[0]=='7'){document.getElementById('ima2').src='img/7.png';}if(s1[0]=='8'){document.getElementById('ima2').src='img/8.png';}
+										if(s1[0]=='9'){document.getElementById('ima2').src='img/9.png';}if(s1[0]=='0'){document.getElementById('ima2').src='img/0_rojo.png';document.getElementById('imas1').src='img/s1_rojo.png';}
+									}
+								}
+							}
+						
+							if(digitos2<1000)
+							{
+								var s2 = json[3].split("", 3);
+								document.getElementById('imas2').src='img/s2_verde.png';
+								if(s2[0]=='1'){document.getElementById('ima4').src='img/1.png';}if(s2[0]=='2'){document.getElementById('ima4').src='img/2.png';}
+								if(s2[0]=='3'){document.getElementById('ima4').src='img/3.png';}if(s2[0]=='4'){document.getElementById('ima4').src='img/4.png';}
+								if(s2[0]=='5'){document.getElementById('ima4').src='img/5.png';}if(s2[0]=='6'){document.getElementById('ima4').src='img/6.png';}
+								if(s2[0]=='7'){document.getElementById('ima4').src='img/7.png';}if(s2[0]=='8'){document.getElementById('ima4').src='img/8.png';}
+								if(s2[0]=='9'){document.getElementById('ima4').src='img/9.png';}if(s2[0]=='0'){document.getElementById('ima4').src='img/0.png';}
+								
+								if(s2[1]=='1'){document.getElementById('ima5').src='img/1.png';}if(s2[1]=='2'){document.getElementById('ima5').src='img/2.png';}
+								if(s2[1]=='3'){document.getElementById('ima5').src='img/3.png';}if(s2[1]=='4'){document.getElementById('ima5').src='img/4.png';}
+								if(s2[1]=='5'){document.getElementById('ima5').src='img/5.png';}if(s2[1]=='6'){document.getElementById('ima5').src='img/6.png';}
+								if(s2[1]=='7'){document.getElementById('ima5').src='img/7.png';}if(s2[1]=='8'){document.getElementById('ima5').src='img/8.png';}
+								if(s2[1]=='9'){document.getElementById('ima5').src='img/9.png';}if(s2[1]=='0'){document.getElementById('ima5').src='img/0.png';}
+								
+								if(s2[2]=='1'){document.getElementById('ima6').src='img/1.png';}if(s2[2]=='2'){document.getElementById('ima6').src='img/2.png';}
+								if(s2[2]=='3'){document.getElementById('ima6').src='img/3.png';}if(s2[2]=='4'){document.getElementById('ima6').src='img/4.png';}
+								if(s2[2]=='5'){document.getElementById('ima6').src='img/5.png';}if(s2[2]=='6'){document.getElementById('ima6').src='img/6.png';}
+								if(s2[2]=='7'){document.getElementById('ima6').src='img/7.png';}if(s2[2]=='8'){document.getElementById('ima6').src='img/8.png';}
+								if(s2[2]=='9'){document.getElementById('ima6').src='img/9.png';}if(s2[2]=='0'){document.getElementById('ima6').src='img/0.png';}
+										
+								if(digitos2<100)
+								{
+									var s2 = json[3].split("", 2);
+									document.getElementById('ima4').src='img/null.png';
+									document.getElementById('imas2').src='img/s2_verde.png';
+									if(s2[0]=='1'){document.getElementById('ima5').src='img/1.png';}if(s2[0]=='2'){document.getElementById('ima5').src='img/2.png';}
+									if(s2[0]=='3'){document.getElementById('ima5').src='img/3.png';}if(s2[0]=='4'){document.getElementById('ima5').src='img/4.png';}
+									if(s2[0]=='5'){document.getElementById('ima5').src='img/5.png';}if(s2[0]=='6'){document.getElementById('ima5').src='img/6.png';}
+									if(s2[0]=='7'){document.getElementById('ima5').src='img/7.png';}if(s2[0]=='8'){document.getElementById('ima5').src='img/8.png';}
+									if(s2[0]=='9'){document.getElementById('ima5').src='img/9.png';}if(s2[0]=='0'){document.getElementById('ima5').src='img/0.png';}
+									
+									if(s2[1]=='1'){document.getElementById('ima6').src='img/1.png';}if(s2[1]=='2'){document.getElementById('ima6').src='img/2.png';}
+									if(s2[1]=='3'){document.getElementById('ima6').src='img/3.png';}if(s2[1]=='4'){document.getElementById('ima6').src='img/4.png';}
+									if(s2[1]=='5'){document.getElementById('ima6').src='img/5.png';}if(s2[1]=='6'){document.getElementById('ima6').src='img/6.png';}
+									if(s2[1]=='7'){document.getElementById('ima6').src='img/7.png';}if(s2[1]=='8'){document.getElementById('ima6').src='img/8.png';}
+									if(s2[1]=='9'){document.getElementById('ima6').src='img/9.png';}if(s2[1]=='0'){document.getElementById('ima6').src='img/0.png';}
+									
+									if(digitos2<10)
+									{
+										document.getElementById('ima6').src='img/null.png';
+										var s2 = json[3];
+										document.getElementById('imas2').src='img/s2_amarillo.png';
+										if(s2[0]=='1'){document.getElementById('ima5').src='img/1.png';}if(s2[0]=='2'){document.getElementById('ima5').src='img/2.png';}
+										if(s2[0]=='3'){document.getElementById('ima5').src='img/3.png';}if(s2[0]=='4'){document.getElementById('ima5').src='img/4.png';}
+										if(s2[0]=='5'){document.getElementById('ima5').src='img/5.png';}if(s2[0]=='6'){document.getElementById('ima5').src='img/6.png';}
+										if(s2[0]=='7'){document.getElementById('ima5').src='img/7.png';}if(s2[0]=='8'){document.getElementById('ima5').src='img/8.png';}
+										if(s2[0]=='9'){document.getElementById('ima5').src='img/9.png';}if(s2[0]=='0'){document.getElementById('ima5').src='img/0_rojo.png';document.getElementById('imas2').src='img/s2_rojo.png';}
+									}
+								}
+							}
+							
+							if(digitos3<1000)
+							{
+								var s3 = json[5].split("", 3);						
+								document.getElementById('imas3').src='img/s3_verde.png';
+								if(s3[0]=='1'){document.getElementById('ima7').src='img/1.png';}if(s3[0]=='2'){document.getElementById('ima7').src='img/2.png';}
+								if(s3[0]=='3'){document.getElementById('ima7').src='img/3.png';}if(s3[0]=='4'){document.getElementById('ima7').src='img/4.png';}
+								if(s3[0]=='5'){document.getElementById('ima7').src='img/5.png';}if(s3[0]=='6'){document.getElementById('ima7').src='img/6.png';}
+								if(s3[0]=='7'){document.getElementById('ima7').src='img/7.png';}if(s3[0]=='8'){document.getElementById('ima7').src='img/8.png';}
+								if(s3[0]=='9'){document.getElementById('ima7').src='img/9.png';}if(s3[0]=='0'){document.getElementById('ima7').src='img/0.png';}
+								
+								if(s3[1]=='1'){document.getElementById('ima8').src='img/1.png';}if(s3[1]=='2'){document.getElementById('ima8').src='img/2.png';}
+								if(s3[1]=='3'){document.getElementById('ima8').src='img/3.png';}if(s3[1]=='4'){document.getElementById('ima8').src='img/4.png';}
+								if(s3[1]=='5'){document.getElementById('ima8').src='img/5.png';}if(s3[1]=='6'){document.getElementById('ima8').src='img/6.png';}
+								if(s3[1]=='7'){document.getElementById('ima8').src='img/7.png';}if(s3[1]=='8'){document.getElementById('ima8').src='img/8.png';}
+								if(s3[1]=='9'){document.getElementById('ima8').src='img/9.png';}if(s3[1]=='0'){document.getElementById('ima8').src='img/0.png';}
+								
+								if(s3[2]=='1'){document.getElementById('ima9').src='img/1.png';}if(s3[2]=='2'){document.getElementById('ima9').src='img/2.png';}
+								if(s3[2]=='3'){document.getElementById('ima9').src='img/3.png';}if(s3[2]=='4'){document.getElementById('ima9').src='img/4.png';}
+								if(s3[2]=='5'){document.getElementById('ima9').src='img/5.png';}if(s3[2]=='6'){document.getElementById('ima9').src='img/6.png';}
+								if(s3[2]=='7'){document.getElementById('ima9').src='img/7.png';}if(s3[2]=='8'){document.getElementById('ima9').src='img/8.png';}
+								if(s3[2]=='9'){document.getElementById('ima9').src='img/9.png';}if(s3[2]=='0'){document.getElementById('ima9').src='img/0.png';}	
+									
+									
+								if(digitos3<100)
+								{
+									var s3 = json[5].split("", 2);
+									document.getElementById('ima7').src='img/null.png';
+									document.getElementById('imas3').src='img/s3_verde.png';
+									if(s3[0]=='1'){document.getElementById('ima8').src='img/1.png';}if(s3[0]=='2'){document.getElementById('ima8').src='img/2.png';}
+									if(s3[0]=='3'){document.getElementById('ima8').src='img/3.png';}if(s3[0]=='4'){document.getElementById('ima8').src='img/4.png';}
+									if(s3[0]=='5'){document.getElementById('ima8').src='img/5.png';}if(s3[0]=='6'){document.getElementById('ima8').src='img/6.png';}
+									if(s3[0]=='7'){document.getElementById('ima8').src='img/7.png';}if(s3[0]=='8'){document.getElementById('ima8').src='img/8.png';}
+									if(s3[0]=='9'){document.getElementById('ima8').src='img/9.png';}if(s3[0]=='0'){document.getElementById('ima8').src='img/0.png';}
+									
+									if(s3[1]=='1'){document.getElementById('ima9').src='img/1.png';}if(s3[1]=='2'){document.getElementById('ima9').src='img/2.png';}
+									if(s3[1]=='3'){document.getElementById('ima9').src='img/3.png';}if(s3[1]=='4'){document.getElementById('ima9').src='img/4.png';}
+									if(s3[1]=='5'){document.getElementById('ima9').src='img/5.png';}if(s3[1]=='6'){document.getElementById('ima9').src='img/6.png';}
+									if(s3[1]=='7'){document.getElementById('ima9').src='img/7.png';}if(s3[1]=='8'){document.getElementById('ima9').src='img/8.png';}
+									if(s3[1]=='9'){document.getElementById('ima9').src='img/9.png';}if(s3[1]=='0'){document.getElementById('ima9').src='img/0.png';}
+									
+									if(digitos3<10)
+									{
+										document.getElementById('ima9').src='img/null.png';
+										var s3 = json[5];
+										document.getElementById('imas3').src='img/s3_amarillo.png';
+										if(s3[0]=='1'){document.getElementById('ima8').src='img/1.png';}if(s3[0]=='2'){document.getElementById('ima8').src='img/2.png';}
+										if(s3[0]=='3'){document.getElementById('ima8').src='img/3.png';}if(s3[0]=='4'){document.getElementById('ima8').src='img/4.png';}
+										if(s3[0]=='5'){document.getElementById('ima8').src='img/5.png';}if(s3[0]=='6'){document.getElementById('ima8').src='img/6.png';}
+										if(s3[0]=='7'){document.getElementById('ima8').src='img/7.png';}if(s3[0]=='8'){document.getElementById('ima8').src='img/8.png';}
+										if(s3[0]=='9'){document.getElementById('ima8').src='img/9.png';}if(s3[0]=='0'){document.getElementById('ima8').src='img/0_rojo.png';document.getElementById('imas3').src='img/s3_rojo.png';}
+									
+									}
+								}
+							}
+							
+							if(digitos4<1000)
+							{
+								var s4 = json[7].split("", 3);
+								document.getElementById('imas4').src='img/s4_verde.png';
+								if(s4[0]=='1'){document.getElementById('ima10').src='img/1.png';}if(s4[0]=='2'){document.getElementById('ima10').src='img/2.png';}
+								if(s4[0]=='3'){document.getElementById('ima10').src='img/3.png';}if(s4[0]=='4'){document.getElementById('ima10').src='img/4.png';}
+								if(s4[0]=='5'){document.getElementById('ima10').src='img/5.png';}if(s4[0]=='6'){document.getElementById('ima10').src='img/6.png';}
+								if(s4[0]=='7'){document.getElementById('ima10').src='img/7.png';}if(s4[0]=='8'){document.getElementById('ima10').src='img/8.png';}
+								if(s4[0]=='9'){document.getElementById('ima10').src='img/9.png';}if(s4[0]=='0'){document.getElementById('ima10').src='img/0.png';}
+								
+								if(s4[1]=='1'){document.getElementById('ima11').src='img/1.png';}if(s4[1]=='2'){document.getElementById('ima11').src='img/2.png';}
+								if(s4[1]=='3'){document.getElementById('ima11').src='img/3.png';}if(s4[1]=='4'){document.getElementById('ima11').src='img/4.png';}
+								if(s4[1]=='5'){document.getElementById('ima11').src='img/5.png';}if(s4[1]=='6'){document.getElementById('ima11').src='img/6.png';}
+								if(s4[1]=='7'){document.getElementById('ima11').src='img/7.png';}if(s4[1]=='8'){document.getElementById('ima11').src='img/8.png';}
+								if(s4[1]=='9'){document.getElementById('ima11').src='img/9.png';}if(s4[1]=='0'){document.getElementById('ima11').src='img/0.png';}
+								
+								if(s4[2]=='1'){document.getElementById('ima12').src='img/1.png';}if(s4[2]=='2'){document.getElementById('ima12').src='img/2.png';}
+								if(s4[2]=='3'){document.getElementById('ima12').src='img/3.png';}if(s4[2]=='4'){document.getElementById('ima12').src='img/4.png';}
+								if(s4[2]=='5'){document.getElementById('ima12').src='img/5.png';}if(s4[2]=='6'){document.getElementById('ima12').src='img/6.png';}
+								if(s4[2]=='7'){document.getElementById('ima12').src='img/7.png';}if(s4[2]=='8'){document.getElementById('ima12').src='img/8.png';}
+								if(s4[2]=='9'){document.getElementById('ima12').src='img/9.png';}if(s4[2]=='0'){document.getElementById('ima12').src='img/0.png';}
+
+								if(digitos4<100)
+								{
+									var s4 = json[7].split("", 2);
+									document.getElementById('ima10').src='img/null.png';
+									document.getElementById('imas4').src='img/s4_verde.png';
+									if(s4[0]=='1'){document.getElementById('ima11').src='img/1.png';}if(s4[0]=='2'){document.getElementById('ima11').src='img/2.png';}
+									if(s4[0]=='3'){document.getElementById('ima11').src='img/3.png';}if(s4[0]=='4'){document.getElementById('ima11').src='img/4.png';}
+									if(s4[0]=='5'){document.getElementById('ima11').src='img/5.png';}if(s4[0]=='6'){document.getElementById('ima11').src='img/6.png';}
+									if(s4[0]=='7'){document.getElementById('ima11').src='img/7.png';}if(s4[0]=='8'){document.getElementById('ima11').src='img/8.png';}
+									if(s4[0]=='9'){document.getElementById('ima11').src='img/9.png';}if(s4[0]=='0'){document.getElementById('ima11').src='img/0.png';}
+									
+									if(s4[1]=='1'){document.getElementById('ima12').src='img/1.png';}if(s4[1]=='2'){document.getElementById('ima12').src='img/2.png';}
+									if(s4[1]=='3'){document.getElementById('ima12').src='img/3.png';}if(s4[1]=='4'){document.getElementById('ima12').src='img/4.png';}
+									if(s4[1]=='5'){document.getElementById('ima12').src='img/5.png';}if(s4[1]=='6'){document.getElementById('ima12').src='img/6.png';}
+									if(s4[1]=='7'){document.getElementById('ima12').src='img/7.png';}if(s4[1]=='8'){document.getElementById('ima12').src='img/8.png';}
+									if(s4[1]=='9'){document.getElementById('ima12').src='img/9.png';}if(s4[1]=='0'){document.getElementById('ima12').src='img/0.png';}
+									
+									if(digitos4<10)
+									{
+										document.getElementById('ima12').src='img/null.png';
+										document.getElementById('imas4').src='img/s4_amarillo.png';
+										var s4 = json[7];
+										if(s4[0]=='1'){document.getElementById('ima11').src='img/1.png';}if(s4[0]=='2'){document.getElementById('ima11').src='img/2.png';}
+										if(s4[0]=='3'){document.getElementById('ima11').src='img/3.png';}if(s4[0]=='4'){document.getElementById('ima11').src='img/4.png';}
+										if(s4[0]=='5'){document.getElementById('ima11').src='img/5.png';}if(s4[0]=='6'){document.getElementById('ima11').src='img/6.png';}
+										if(s4[0]=='7'){document.getElementById('ima11').src='img/7.png';}if(s4[0]=='8'){document.getElementById('ima11').src='img/8.png';}
+										if(s4[0]=='9'){document.getElementById('ima11').src='img/9.png';}if(s4[0]=='0'){document.getElementById('ima11').src='img/0_rojo.png';document.getElementById('imas4').src='img/s4_rojo.png';}
+										
+									}
+								}
+							}
+					}
+				}
+			}
+		 
+		  xmlhttp.send( null );
+		  
+		}
+		
+    </script>
+
+
+</head>
+
+<body onload="cambiar();">
+		
+		<!-- campo 1 -->
+		<div class="row" style="width:1920px;height:108px;background-color:black;margin-left: 0px;margin-right: 0px;">
+			<img src="img/logo_euro.jpg" />
+		</div>
+			
+		<div class="row" style="width:1920px;margin-left: 0px;margin-right: 0px;">
+
+			<!-- campo 4 -->
+			<div  style="position:absolute;top:108px;left:0px;width:1920px;height:692px;background-color:#0F243E;">
+				
+				<!-- flechas -->
+				<!-- <script type="text/javascript">
+					if(sotano=='1'){document.write("<img id=\"flecha1\"	style=\"position:absolute;top:50px; left:200px;\"  src=\"img/flecha.png\"/>");}
+					if(sotano=='2'){document.write("<img id=\"flecha2\"	style=\"position:absolute;top:50px; left:680px;\" src=\"img/flecha.png\"/>");}
+					if(sotano=='3'){document.write("<img id=\"flecha3\"	style=\"position:absolute;top:50px; left:1150px;\" src=\"img/flecha.png\"/>");}
+					if(sotano=='4'){document.write("<img id=\"flecha4\"	style=\"position:absolute;top:50px; left:1650px;\" src=\"img/flecha.png\"/>");}
+				</script> -->
+							
+				<!-- puestos disponibles -->
+				<img id="puestos" src="img/puestos.png" style="position:absolute;top:20px;left:0px; " />
+				
+				<!-- sotanos -->
+				<img id="imas1"	style="position:absolute;top:220px;left:10px; " />
+				<img id="imas2"	style="position:absolute;top:220px;left:480px;" />
+				<img id="imas3"	style="position:absolute;top:220px;left:960px;" />				
+				<img id="imas4"	style="position:absolute;top:220px;left:1440px;" />
+				
+				<!-- numeros -->
+				<img id="ima1"style="position:absolute;top:520px;left:170px;"/>
+				<img id="ima2"style="position:absolute;top:520px;left:230px;"/>
+				<img id="ima3"style="position:absolute;top:520px;left:290px;"/>
+				
+				<img id="ima4"style="position:absolute;top:520px;left:620px;"/>
+				<img id="ima5"style="position:absolute;top:520px;left:680px;"/>
+				<img id="ima6"style="position:absolute;top:520px;left:740px;"/>
+						
+				<img id="ima7"style="position:absolute;top:520px;left:1100px;"/>
+				<img id="ima8"style="position:absolute;top:520px;left:1160px;"/>
+				<img id="ima9"style="position:absolute;top:520px;left:1220px;"/>
+						
+				<img id="ima10"style="position:absolute;top:520px;left:1600px;"/>
+				<img id="ima11"style="position:absolute;top:520px;left:1660px;"/>
+				<img id="ima12"style="position:absolute;top:520px;left:1720px;"/> 
+								
+			</div>
+			
+			<div  style="position:absolute;top:710px; width:1920px;height:80px;">
+				
+				<div ALIGN=right  id="recuadro2" style="position:absolute;top:0px;left:-80px;width:1700px;"></div> <!-- fecha -->
+				
+				<div    id="recuadro1" style="position:absolute;top:0px;left:1650px;width:220px;"> <!-- hora -->
+					<script type="text/javascript">
+						/*var int=self.setInterval("cargarFecha()",1000);
+						function cargarFecha()
+						{
+							var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+							var f=new Date();
+							var Hora = f.getHours() ;
+							var Minutos = f.getMinutes() ;
+							var Segundos = f.getSeconds() ;
+														 
+							if (Hora<=9){
+							Hora = "0" + Hora;}
+							if (Hora>12){
+							Hora =  Hora-12;}
+							 
+							if (Minutos<=9){
+							Minutos = "0" + Minutos;}
+							 
+							if (Segundos<=9){
+							Segundos = "0" + Segundos;}
+							
+							var Script = Hora + ":" + Minutos + ":" + Segundos; 
+							document.getElementById('recuadro1').innerHTML = Script;
+							
+							document.getElementById('recuadro2').innerHTML=(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+						}*/
+					</script>
+				</div> 
+			</div>
+		</div>
+			
+		<div class="row" style="width:1920px;margin-left: 0px;margin-right: 0px;">
+			<!-- campo 5 -->
+			<div  style="position:absolute;top:800px;left:0px;width:1920px;height:280px;background-color:black;">
+				<div id="movies">
+					<!-- <iframe src="http://10.0.3.2/servidorphp/publicidad.php" width="1920" height="280"> --> 
+					<iframe src="http://192.168.1.115/servidorphp/publicidad.php" width="1920" height="280"> 
+				</div>
+			</div>
+
+		</div>
+	    
+	<script type="text/javascript" src="js/jquery.min.js"></script>  
+    <script type="text/javascript" src="js/textualizer.min.js"></script>  
+    <script type="text/javascript" src="js/textualizer.js"></script>
+</body>
+</html>

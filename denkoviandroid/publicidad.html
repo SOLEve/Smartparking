@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/trans/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/trans/jquery.panelgallery-2.0.0.min.js"></script>	
+	<script type="text/javascript">
+	$(function(){
+		$('#movies').panelGallery({
+			viewDuration: 3000,
+			transitionDuration: 500,
+			boxSize: 45,
+			boxFadeDuration: 500,
+			boxTransitionDuration: 50
+		});
+	});
+	</script>
+	<style type="text/css">
+	#movies {
+		margin: 0px auto 0 auto;
+		-moz-box-shadow: 0px 0px 10px #333;
+		-webkit-box-shadow:  0px 0px 10px #333;
+		box-shadow:  0px 0px 10px #333;
+		clear:right;
+	}
+	</style>
+</head>
+
+<body style="width:1920px;height:280px;overflow:hidden;">
+
+<div id="movies" style="top:-06px;left:-05px;" >
+	<img alt="" src="img/publicidad.jpg" width="1920" height="280" />
+	<img alt="" src="img/publicidad2.jpg" width="1920" height="280" />
+	<img alt="" src="img/publicidad3.jpg" width="1920" height="280" />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="contenedor_programa" prefHeight="525.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="denkoviservidor.FXMLDocumentController">
+   <tabs>
+      <Tab fx:id="sesion_panel" closable="false" text="Sesion">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="login" layoutX="300.0" layoutY="181.0" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="181.0" />
+                  <PasswordField fx:id="password" layoutX="300.0" layoutY="265.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" />
+                  <Button fx:id="iniciar" layoutX="229.0" layoutY="317.0" mnemonicParsing="false" onAction="#iniciar_sesion" prefHeight="46.0" prefWidth="115.0" text="Iniciar sesion" AnchorPane.leftAnchor="250.0">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cerrar" disable="true" layoutX="403.0" layoutY="317.0" mnemonicParsing="false" onAction="#cerrar_sesion" prefHeight="46.0" prefWidth="115.0" text="Cerrar sesion" AnchorPane.rightAnchor="250.0">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="311.0" layoutY="160.0" text="Nombre de Usuario" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="309.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="336.0" layoutY="238.0" prefHeight="21.0" prefWidth="78.0" text="Contraseña" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="335.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="msj_error" layoutX="241.0" layoutY="382.0" textFill="#ee0000">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="msj_exito" layoutX="230.0" layoutY="371.0" textFill="#00ed37">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="principal_panel" closable="false" disable="true" text="Principal">
+         <content>
+            <AnchorPane id="AnchorPane" prefHeight="499.0" prefWidth="750.0" style="-fx-background-color: #e1e6f8;">
+                <children>
+                  <Label layoutX="98.0" layoutY="109.0" text="SOTANO 1" underline="true">
+                     <font>
+                        <Font name="Arial" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="481.0" layoutY="109.0" text="SOTANO 2" underline="true">
+                     <font>
+                        <Font name="Arial" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="98.0" layoutY="266.0" text="SOTANO 3" underline="true">
+                     <font>
+                        <Font name="Arial" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="481.0" layoutY="266.0" text="SOTANO 4" underline="true">
+                     <font>
+                        <Font name="Arial" size="31.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Puestos_Totales1" layoutX="14.0" layoutY="165.0" prefHeight="25.0" prefWidth="100.0" text="150" />
+                  <TextField fx:id="Puestos_Reservados1" layoutX="14.0" layoutY="200.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <TextField fx:id="Puestos_ocupado1" layoutX="14.0" layoutY="233.0" prefWidth="100.0" text="0" />
+                  <TextField fx:id="Puestos_Totales2" layoutX="397.0" layoutY="166.0" prefHeight="25.0" prefWidth="100.0" text="150" />
+                  <TextField fx:id="Puestos_Reservados2" layoutX="397.0" layoutY="201.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <TextField fx:id="Puestos_ocupado2" layoutX="397.0" layoutY="234.0" prefWidth="100.0" text="0" />
+                  <Label layoutX="125.0" layoutY="167.0" text="Puestos Totales">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="202.0" text="Puestos Reservados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="235.0" text="Puestos Ocupados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="508.0" layoutY="236.0" text="Puestos Ocupados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="508.0" layoutY="203.0" text="Puestos Reservados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="508.0" layoutY="168.0" text="Puestos Totales">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="395.0" text="Puestos Ocupados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="362.0" text="Puestos Reservados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="125.0" layoutY="327.0" text="Puestos Totales">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Puestos_Totales3" layoutX="14.0" layoutY="325.0" prefHeight="25.0" prefWidth="100.0" text="150" />
+                  <TextField fx:id="Puestos_Reservados3" layoutX="14.0" layoutY="360.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <TextField fx:id="Puestos_ocupado3" layoutX="14.0" layoutY="393.0" prefWidth="100.0" text="0" />
+                  <Label layoutX="508.0" layoutY="394.0" text="Puestos Ocupados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="508.0" layoutY="361.0" text="Puestos Reservados">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="508.0" layoutY="326.0" text="Puestos Totales">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Puestos_Totales4" layoutX="397.0" layoutY="324.0" prefHeight="25.0" prefWidth="100.0" text="150" />
+                  <TextField fx:id="Puestos_Reservados4" layoutX="397.0" layoutY="359.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <TextField fx:id="Puestos_ocupado4" layoutX="397.0" layoutY="392.0" prefWidth="100.0" text="0" />
+                  <Separator layoutX="14.0" layoutY="266.0" prefHeight="0.0" prefWidth="736.0" AnchorPane.bottomAnchor="228.0" AnchorPane.topAnchor="266.0" />
+                  <Separator layoutX="7.0" layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutX="372.0" layoutY="115.0" orientation="VERTICAL" prefHeight="310.0" prefWidth="6.0" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="403.0" />
+                  <Separator layoutX="7.0" layoutY="425.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Button fx:id="Asignar" layoutX="20.0" layoutY="440.0" mnemonicParsing="false" onAction="#asignarS1" prefHeight="46.0" prefWidth="94.0" text="ASIGNAR">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="6.0" layoutY="107.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Label fx:id="msj_sql" layoutX="20.0" layoutY="76.0">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="Denkovi_panel" closable="false" disable="true" text="Denkovi">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <TextField fx:id="DA" layoutX="41.0" layoutY="128.0" prefHeight="25.0" prefWidth="95.0" text="192.168.1.198" />
+                  <Label layoutX="182.0" layoutY="154.0" text="Puerto">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="256.0" layoutY="154.0" text="Serial Adress">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="62.0" layoutY="154.0" text="Direccion ip">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="PA" layoutX="176.0" layoutY="128.0" prefHeight="25.0" prefWidth="48.0" text="1010" />
+                  <TextField fx:id="SA" layoutX="258.0" layoutY="128.0" prefHeight="25.0" prefWidth="64.0" text="00" />
+                  <Label fx:id="E8" layoutX="230.0" layoutY="389.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E7" layoutX="230.0" layoutY="359.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="389.0" text="8) Sótano 2 Salida a Sótano 3 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="359.0" text="7) Sótano 2 Salida a Sótano 1 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E6" layoutX="230.0" layoutY="329.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="329.0" text="6) Sótano 2 Salida Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E5" layoutX="230.0" layoutY="299.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="299.0" text="5) Sótano 2 Entrada Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E4" layoutX="230.0" layoutY="269.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="269.0" text="4) Sótano 1 Salida a Sótano 2 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E3" layoutX="230.0" layoutY="239.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E1" layoutX="230.0" layoutY="179.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E2" layoutX="230.0" layoutY="209.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="209.0" text="2) Sótano 1 Entrada Barrera Norte">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="239.0" text="3) Sótano 1 Salida Barrera Norte">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="179.0" text="1) Sótano 1 Entrada Barrera Sur">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="176.0" text="1) Sótano 3 Entrada Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="236.0" text="3) Sótano 3 Salida a Sótano 2 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="206.0" text="2) Sótano 3 Salida Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E21" layoutX="600.0" layoutY="206.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E11" layoutX="600.0" layoutY="176.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E31" layoutX="600.0" layoutY="236.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="266.0" text="4) Sótano 3 Salida a Sótano 4 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E41" layoutX="600.0" layoutY="266.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="296.0" text="5) Sótano 4 Salida a Sótano 3 (Radar)">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E51" layoutX="600.0" layoutY="296.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="326.0" text="6) Libre">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E61" layoutX="600.0" layoutY="326.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="356.0" text="7) Libre">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="390.0" layoutY="386.0" text="8) Libre">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E71" layoutX="599.0" layoutY="356.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="E81" layoutX="599.0" layoutY="386.0" text="X">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="SA1" layoutX="648.0" layoutY="127.0" prefHeight="25.0" prefWidth="64.0" text="00" />
+                  <TextField fx:id="PA1" layoutX="550.0" layoutY="127.0" prefHeight="25.0" prefWidth="48.0" text="1010" />
+                  <Label layoutX="427.0" layoutY="153.0" text="Direccion ip">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="646.0" layoutY="153.0" text="Serial Adress">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="556.0" layoutY="153.0" text="Puerto">
+                     <font>
+                        <Font name="Berlin Sans FB" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="DA1" layoutX="411.0" layoutY="127.0" prefHeight="25.0" prefWidth="95.0" text="192.168.1.199" />
+                  <Separator layoutX="7.0" layoutY="425.0" prefHeight="3.0" prefWidth="735.0" />
+                  <Label layoutX="102.0" layoutY="77.0" text="MODULO 1" textFill="#2527d0" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="458.0" layoutY="74.0" text="MODULO 2" textFill="#2527d0" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="359.0" layoutY="65.0" orientation="VERTICAL" prefHeight="361.0" prefWidth="0.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="Conectar" layoutX="20.0" layoutY="440.0" onAction="#handleButtonAction1" prefHeight="45.0" prefWidth="103.0" text="Conectar">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Desconectar" layoutX="130.0" layoutY="440.0" onAction="#handleButtonAction2" prefHeight="45.0" prefWidth="120.0" text="Desconectar">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutY="60.0" prefHeight="3.0" prefWidth="735.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="Reportes_panel" closable="false" disable="true" text="Reportes">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <Separator layoutX="7.0" layoutY="240.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutX="372.0" layoutY="62.0" orientation="VERTICAL" prefHeight="362.0" prefWidth="0.0" />
+                  <Label layoutX="515.0" layoutY="250.0" text="SOTANO 4" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="106.0" layoutY="250.0" text="SOTANO 3" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="515.0" layoutY="73.0" text="SOTANO 2" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="111.0" layoutY="73.0" text="SOTANO 1" underline="true">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Cant_PuestosR1" layoutX="180.0" layoutY="130.0" text="XXXX" />
+                  <Label layoutX="15.0" layoutY="170.0" text="Puestos Disponibles:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="210.0" text="Autos en el Sótano :">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Cant_PuestosI1" layoutX="180.0" layoutY="150.0" text="XXXX" />
+                  <Label layoutX="415.0" layoutY="210.0" text="Autos en el Sótano:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="390.0" text="Autos en el Sótano:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="390.0" text="Autos en el Sótano:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="110.0" text="Cantidad de Puestos:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="130.0" text="Puestos Reservados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="150.0" text="Puestos Inicialmente:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="150.0" text="Puestos Inicialmente:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="130.0" text="Puestos Reservados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="110.0" text="Cantidad de Puestos:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="170.0" text="Puestos Disponibles:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="330.0" text="Puestos Inicialmente:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="310.0" text="Puestos Reservados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="290.0" text="Cantidad de Puestos:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="350.0" text="Puestos Disponibles:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="330.0" text="Puestos Inicialmente:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="310.0" text="Puestos Reservados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="290.0" text="Cantidad de Puestos:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="350.0" text="Puestos Disponibles:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="190.0" text="Puestos Ocupados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="190.0" text="Puestos Ocupados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="370.0" text="Puestos Ocupados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="370.0" text="Puestos Ocupados:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Cant_Puestos1" layoutX="181.0" layoutY="110.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosD1" layoutX="180.0" layoutY="170.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosO1" layoutX="180.0" layoutY="190.0" text="XXXX" />
+                  <Label fx:id="Cant_Autos1" layoutX="180.0" layoutY="210.0" text="XXXX" />
+                  <Label fx:id="Cant_Autos2" layoutX="581.0" layoutY="210.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosO2" layoutX="581.0" layoutY="190.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosD2" layoutX="581.0" layoutY="170.0" text="XXXX" />
+                  <Label fx:id="Cant_Puestos2" layoutX="582.0" layoutY="110.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosI2" layoutX="581.0" layoutY="150.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosR2" layoutX="581.0" layoutY="130.0" text="XXXX" />
+                  <Label fx:id="Cant_Autos3" layoutX="180.0" layoutY="390.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosO3" layoutX="180.0" layoutY="370.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosD3" layoutX="180.0" layoutY="350.0" text="XXXX" />
+                  <Label fx:id="Cant_Puestos3" layoutX="181.0" layoutY="290.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosI3" layoutX="180.0" layoutY="330.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosR3" layoutX="180.0" layoutY="310.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosR4" layoutX="581.0" layoutY="310.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosI4" layoutX="581.0" layoutY="330.0" text="XXXX" />
+                  <Label fx:id="Cant_Puestos4" layoutX="582.0" layoutY="290.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosD4" layoutX="581.0" layoutY="350.0" text="XXXX" />
+                  <Label fx:id="Cant_PuestosO4" layoutX="581.0" layoutY="370.0" text="XXXX" />
+                  <Label fx:id="Cant_Autos4" layoutX="581.0" layoutY="390.0" text="XXXX" />
+                  <Separator layoutY="60.0" prefHeight="3.0" prefWidth="735.0" />
+                  <Separator layoutY="425.0" prefHeight="3.0" prefWidth="735.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="ReporteGrafica_panel" closable="false" disable="true" text="Grafica Reporte">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <PieChart fx:id="chart1234" layoutX="86.0" layoutY="73.0" prefHeight="346.0" prefWidth="577.0" title="Estacionamiento" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="73.0" />
+                  <Separator layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutY="425.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="Reporte1_panel" closable="false" disable="true" text="Reporte S1">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <PieChart fx:id="chart1" layoutX="350.0" layoutY="70.0" prefHeight="350.0" prefWidth="400.0" title="Grafica Sótano 1" />
+                  <Separator layoutX="340.0" layoutY="70.0" orientation="VERTICAL" prefHeight="348.0" prefWidth="0.0" />
+                  <Label layoutX="25.0" layoutY="180.0" text="N° de Entradas por la Barrera Sur">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="210.0" text="N° de Entradas por la Barrera Norte">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="240.0" text="N° de Salidas por la Barrera Norte">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="270.0" text="N° de Salidas hacia Sótano 2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R1_1" layoutX="280.0" layoutY="180.0" text="XXXX" />
+                  <Label fx:id="R1_2" layoutX="280.0" layoutY="210.0" text="XXXX" />
+                  <Label fx:id="R1_3" layoutX="280.0" layoutY="240.0" text="XXXX" />
+                  <Label fx:id="R1_4" layoutX="280.0" layoutY="270.0" text="XXXX" />
+                  <Separator layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutY="425.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="25.0" layoutY="300.0" text="N° de Entradas desde Sótano 2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R1_5" layoutX="280.0" layoutY="300.0" text="XXXX" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="Reporte2_panel" closable="false" disable="true" text="Reporte S2">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <PieChart fx:id="chart2" layoutX="350.0" layoutY="70.0" prefHeight="350.0" prefWidth="400.0" title="Grafica Sótano 2" />
+                  <Separator layoutX="340.0" layoutY="70.0" orientation="VERTICAL" prefHeight="352.0" prefWidth="3.0" />
+                  <Label layoutX="25.0" layoutY="300.0" text="N° de Salidas hacia Sótano 3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="240.0" text="N° de Salidas hacia Sótano 1">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="210.0" text="N° de Salidas por la Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="180.0" text="N° de Entradas por la Barrera ">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R2_1" layoutX="280.0" layoutY="180.0" text="XXXX" />
+                  <Label fx:id="R2_2" layoutX="280.0" layoutY="210.0" text="XXXX" />
+                  <Label fx:id="R2_3" layoutX="280.0" layoutY="240.0" text="XXXX" />
+                  <Label fx:id="R2_4" layoutX="280.0" layoutY="300.0" text="XXXX" />
+                  <Separator layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutY="425.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="25.0" layoutY="270.0" text="N° de Entradas desde Sótano 1">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="330.0" text="N° de Entradas desde Sótano 3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R2_5" layoutX="280.0" layoutY="270.0" text="XXXX" />
+                  <Label fx:id="R2_6" layoutX="280.0" layoutY="330.0" text="XXXX" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="Reporte3_panel" closable="false" disable="true" text="Reporte S3">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <PieChart fx:id="chart3" layoutX="350.0" layoutY="70.0" prefHeight="350.0" prefWidth="400.0" title="Grafica Sótano 3" />
+                  <Separator layoutX="339.0" layoutY="82.0" orientation="VERTICAL" prefHeight="349.0" prefWidth="7.0" />
+                  <Label layoutX="25.0" layoutY="180.0" text="N° de Entradas por la Barrera ">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="210.0" text="N° de Salidas por la Barrera">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="240.0" text="N° de Salidas hacia Sótano 2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="330.0" text="N° de Salidas hacia Sótano 4">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R3_1" layoutX="280.0" layoutY="180.0" text="XXXX" />
+                  <Label fx:id="R3_2" layoutX="280.0" layoutY="210.0" text="XXXX" />
+                  <Label fx:id="R3_4" layoutX="280.0" layoutY="330.0" text="XXXX" />
+                  <Label fx:id="R3_3" layoutX="280.0" layoutY="240.0" text="XXXX" />
+                  <Separator layoutX="10.0" layoutY="435.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="25.0" layoutY="270.0" text="N° de Entradas desde Sótano 2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="300.0" text="N° de Entradas desde Sótano 4">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R3_5" layoutX="280.0" layoutY="270.0" text="XXXX" />
+                  <Label fx:id="R3_6" layoutX="280.0" layoutY="300.0" text="XXXX" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="Reporte4_panel" closable="false" disable="true" text="Reporte S4">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e1e6f8;">
+               <children>
+                  <PieChart fx:id="chart4" layoutX="350.0" layoutY="70.0" prefHeight="350.0" prefWidth="400.0" title="Grafica Sótano 4" />
+                  <Separator layoutX="340.0" layoutY="63.0" orientation="VERTICAL" prefHeight="359.0" prefWidth="0.0" />
+                  <Label layoutX="25.0" layoutY="210.0" text="N° de Salidas hacia Sótano 3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R4_1" layoutX="280.0" layoutY="210.0" text="XXXX" />
+                  <Separator layoutY="60.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Separator layoutY="425.0" prefHeight="0.0" prefWidth="736.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#092175" height="67.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="749.0" />
+                  <ImageView fitHeight="56.0" fitWidth="152.0" layoutX="610.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logovista.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="10.0" layoutY="12.0" text="Vista SmartParking" textFill="#ed9909">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="590.0" layoutY="460.0" text="www.vistatd.com" textFill="#f5f5f5">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="240.0" text="N° de Entradas desde Sótano 3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="R4_2" layoutX="280.0" layoutY="240.0" text="XXXX" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</TabPane>

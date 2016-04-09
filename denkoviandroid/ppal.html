@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel='stylesheet' type='text/css' href='css/mediaq.css'>		
+		<link rel='stylesheet' type='text/css' href='css/bootstrap.css'>		
+		<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css'>
+		<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>		
+		<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.min.css'> 
+		<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+		
+		<script language="JavaScript" type="text/javascript">	
+			function inicio()
+			{
+				document.getElementById('mySelect').addEventListener('change',cambioselect,false);
+			}
+		  var int=self.setInterval("refresh()",3000);		
+
+		function refresh ()
+		{
+			window.location="http://localhost/denkoviandroid/index.html";
+		}
+			function cambioselect()
+			{
+				cadena = document.getElementById('mySelect').value;
+				
+				var tit=document.getElementById('titulo');
+				tit.childNodes[0].nodeValue=cadena;
+			}
+		</script>
+	</head>
+
+<body  style="height: 100%;">
+	<div id="wrap"  > 		
+		<form action="index1.html" method="get">
+		<div class="row" style="background-color:#081660;">
+			<br>
+			<div class="col-md-12"  ALIGN=left style="font-family: 'Oswald', sans-serif;" >
+				<h1 style="padding-left: 50px;color:#ececec;">Smart Parking 	</h1> 
+				<h4 style="padding-left: 50px;color:#e1a411;">Panel de control	</h4>
+			</div>
+		</div>
+		
+	
+		<div class="row">
+			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+		</div>
+		
+		<div class="row" style="height: 200px;">
+		<div class="col-md-4" >
+
+			</div>
+			<div class="col-md-4" ALIGN=center style="font-family: 'Oswald', sans-serif;padding-right: 50px;">
+				<h3>Seleccione número de sótano</h3>
+				<!-- <select class="form-control"  id="mySelect" name="sotano" > </select>  -->
+				<br>
+				<select class="form-control"name="sotano">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				</select>  
+
+			</div>
+			<div class="col-md-4"> </div>
+			<!--<div class="col-md-4"></div>
+			<div class="col-md-4" align=center>
+				<h3 style="font-family: 'Oswald', sans-serif;">Seleccione la Salida</h3>
+				<br>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_1" value="UL" checked>
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_izquierda_arriba.png" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_2" value="U">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_arriba.png" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_3" value="UR">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_derecha_arriba.png" />
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_4" value="L">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_izquierda.png" />
+					</div>
+				</div>
+				<div class="col-md-4"  ALIGN=center style="font-family: 'Oswald', sans-serif;"><h4>SALIDA</h4></div>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_6" value="R">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_derecha.png" />
+					</div>
+				</div>
+								
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_7" value="DL">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_izquierda_abajo.png" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_8" value="D">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_abajo.png" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="radio">
+						<input type="radio" name="opciones" id="opciones_9" value="DR">
+						<img style="position: absolute; top: 0; left: 50; height: 100%" src="img/flecha_derecha_abajo.png" />
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4"></div>-->
+		</div>
+		<br>
+		
+		<div class="row" >
+			<div class="col-md-4"></div>
+			<div class="col-md-4"><button type="submit" style="font-family: 'Oswald', sans-serif;color:#ececec;" class="btn btn-primary btn-lg btn-block">Registrar Datos</button></div>
+			<div class="col-md-4"></div>
+		</div>
+		
+		<div class="row" >
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+		</div>
+		</form>
+    </div>
+	
+	<div id="footer" align=right style=" width:100%;position: absolute; bottom: 0;">
+		<div class="container" style="font-family: 'Oswald', sans-serif;padding-right: 0px;margin-right: 0px;"  >
+			<br><br>Desarrollado por Vista Technology Depveloment.
+			<img style="width:15%;clear:both; " src="img/logo.png" />
+		</div>
+		
+	</div>
+	
+</body>
+</html>
